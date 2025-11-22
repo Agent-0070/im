@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { useToast } from '../hooks/use-toast';
+import { API_BASE_URL } from '../lib/api';
 import { useEvents } from '../contexts/EventContext';
 
 const EmailVerification: React.FC = () => {
@@ -31,7 +32,7 @@ const EmailVerification: React.FC = () => {
 
   const verifyEmail = async (verificationToken: string) => {
     try {
-      const response = await fetch(`/api/auth/verify-email/${verificationToken}`, {
+      const response = await fetch(`${API_BASE_URL}/auth/verify-email/${verificationToken}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +87,7 @@ const EmailVerification: React.FC = () => {
     setIsResending(true);
 
     try {
-      const response = await fetch('/api/auth/resend-verification', {
+      const response = await fetch(`${API_BASE_URL}/auth/resend-verification`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

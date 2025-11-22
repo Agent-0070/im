@@ -2,7 +2,7 @@ import axios from 'axios';
 import { io } from 'socket.io-client';
 
 // Configure API base URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://im-hpgy.onrender.com/api';
 
 // Create axios instance
 const api = axios.create({
@@ -226,7 +226,7 @@ export const analyticsAPI = {
 export const createSocketConnection = () => {
   const token = typeof window !== 'undefined' ? localStorage.getItem('auth-token') : '';
 
-  const socket = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000', {
+  const socket = io(import.meta.env.VITE_SOCKET_URL || 'https://im-hpgy.onrender.com', {
     transports: ['websocket', 'polling'],
     autoConnect: true,
     withCredentials: true,
@@ -295,7 +295,7 @@ export function getAbsoluteImageUrl(imagePath: string) {
   // If it's already an absolute URL, return as is
   if (/^https?:\/\//i.test(imagePath)) return imagePath;
 
-  const apiBase = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+  const apiBase = import.meta.env.VITE_API_URL || 'https://im-hpgy.onrender.com/api';
   const backendOrigin = apiBase.replace(/\/api\/?$/, '');
 
   // If it's a relative path (starts with '/'), prefix backend origin
