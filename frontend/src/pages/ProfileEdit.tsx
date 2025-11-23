@@ -221,7 +221,7 @@ const ProfileEdit: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen pt-16 bg-gradient-to-br from-background to-muted/50 font-poppins">
+    <div className="min-h-screen md:pt-16 pt-1 bg-gradient-to-br from-background to-muted/50 font-poppins">
       <div className="container mx-auto px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -230,7 +230,7 @@ const ProfileEdit: React.FC = () => {
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
-            <h1 className="text-3xl font-bold">Edit Profile</h1>
+            <h1 className="md:text-[17px] text-[15px] font-[500]">Edit Profile</h1>
             <Button
               variant="ghost"
               onClick={() => navigate('/dashboard')}
@@ -245,7 +245,7 @@ const ProfileEdit: React.FC = () => {
           {/* Public Profile Preview */}
           <Card className="mb-6 border-dashed">
             <CardHeader>
-              <CardTitle>Public Profile Preview</CardTitle>
+              <CardTitle className='md:text-[17px] text-[15px] font-[600]'>Public Profile Preview</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-start gap-4">
@@ -287,7 +287,7 @@ const ProfileEdit: React.FC = () => {
                     <div className="text-xs uppercase text-muted-foreground">Hosting Countries</div>
                     <div className="flex flex-wrap gap-2 mt-1">
                       {(showAllCountries ? formData.hostingCountries : formData.hostingCountries.slice(0, 8)).map((c, i) => (
-                        <span key={i} className="px-2 py-0.5 text-xs rounded border border-glass-border/30">{c}</span>
+                        <span key={i} className="px-2 py-0.5 text-xs rounded  border border-glass-border/30">{c}</span>
                       ))}
                     </div>
                     {formData.hostingCountries.length > 8 && (
@@ -333,7 +333,7 @@ const ProfileEdit: React.FC = () => {
 
           <Card className="backdrop-blur-glass bg-gradient-glass border-gray-300 shadow-glass">
             <CardHeader>
-              <CardTitle className="flex items-center">
+              <CardTitle className="flex items-center md:text-[15px] text-[15px] font-[500]">
                 <Camera className="h-5 w-5 mr-2" />
                 Profile Information
               </CardTitle>

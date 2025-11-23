@@ -15,7 +15,7 @@ import {
   Mail,
   Ticket
 } from 'lucide-react';
-import { notificationsAPI } from '../lib/api';
+import { notificationsAPI, createSocketConnection } from '../lib/api';
 
 export interface BookingNotification {
   id: string;
@@ -97,10 +97,10 @@ export const useBookingNotifications = () => {
       const token = localStorage.getItem('auth-token');
       if (!token) return;
 
-      // Import socket connection
-      import('../lib/api').then(({ createSocketConnection }) => {
-        const socket = createSocketConnection();
+      // Create socket connection and attach handlers
+      const socket = createSocketConnection();
 
+      if (socket) {
         socket.on('connect', () => {
           console.log('🔔 Real-time notifications connected');
           socket.emit('user:join', { token });
@@ -152,10 +152,7 @@ export const useBookingNotifications = () => {
         socket.on('disconnect', () => {
           console.log('🔔 Real-time notifications disconnected');
         });
-
-        // Store socket reference for cleanup
-        return socket;
-      });
+      }
     };
 
     // Initialize real-time connection

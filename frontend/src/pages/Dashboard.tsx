@@ -55,6 +55,26 @@ const Dashboard: React.FC = () => {
   const [paymentReceipts, setPaymentReceipts] = useState<any[]>([]);
   const [loadingReceipts, setLoadingReceipts] = useState(false);
 
+  // Prevent background scrolling / scrollbar toggle when modal is open
+  useEffect(() => {
+    try {
+      if (isCreateModalOpen) {
+        // lock body scroll
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    } catch (e) {
+      // ignore (server-side rendering or unavailable document)
+    }
+
+    return () => {
+      try {
+        document.body.style.overflow = '';
+      } catch (e) {}
+    };
+  }, [isCreateModalOpen]);
+
   if (!currentUser) {
     return (
       <div className="min-h-screen pt-16 flex items-center justify-center">
@@ -253,7 +273,7 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16 px-4 md:px-6 lg:px-8 font-poppins">
+    <div className="min-h-screen pt-4 px-4 md:px-6 lg:px-8 font-poppins">
       <div className="max-w-7xl mx-auto py-8">
         {/* Header */}
         <motion.div
@@ -263,10 +283,10 @@ const Dashboard: React.FC = () => {
         >
           <div className="flex flex-col space-y-4 lg:flex-row lg:items-center lg:justify-between lg:space-y-0">
             <div>
-              <h1 className="text-3xl md:text-4xl lg:text-4xl font-[700] mb-3">
-                Welcome back, <span className="bg-gradient-primary bg-clip-text text-transparent">{currentUser?.name || 'User'}</span>
+              <h1 className="text-2xl md:text-4xl lg:text-4xl font-[700] mb-3">
+                Welcome back, <span className="bg-gradient-primary bg-clip-text text-blue-900">{currentUser?.name || 'User'}</span>
               </h1>
-              <p className="text-muted-foreground text-[15px] md:text-base font-[395]">
+              <p className="text-muted-foreground text-[13ipx] md:text-base font-[395]">
                 Manage your events and track your bookings from your personalized dashboard.
               </p>
             </div>
@@ -288,12 +308,12 @@ const Dashboard: React.FC = () => {
                     Create Event
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="backdrop-blur-glass bg-gradient-glass border-gray-300 shadow-glass max-w-4xl max-h-[90vh] overflow-y-auto">
+                <DialogContent className="bg-white text-black dark:bg-gray-500 dark:text-white border-gray-300 shadow-glass md:px-0 px-1 md:max-w-3xl max-h-[90vh] overflow-y-auto">
                   <DialogHeader>
-                    <DialogTitle className="text-lg lg:text-xl font-bold">
+                    <DialogTitle className="text-lg lg:text-xl font-bold px-4">
                       {editingEvent ? 'Edit Event' : 'Create New Event'}
                     </DialogTitle>
-                    <DialogDescription className="font-medium">
+                    <DialogDescription className="font-medium px-4">
                       {editingEvent ? 'Update your event details and settings.' : 'Create a new event with all the necessary details and settings.'}
                     </DialogDescription>
                   </DialogHeader>

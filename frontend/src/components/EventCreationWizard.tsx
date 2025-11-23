@@ -387,7 +387,7 @@ const EventCreationWizard: React.FC<EventCreationWizardProps> = ({
 
   const renderPaymentMethodForm = () => {
     return (
-      <div className="space-y-4 p-4 border border-gray-300 rounded-lg bg-glass-light/5 backdrop-blur-sm font-poppins">
+      <div className="space-y-4 p-4 border border-gray-300 rounded-lg bg-light/5 backdrop-blur-sm font-poppins">
         <div>
           <Label>Payment Method Type</Label>
           <Select
@@ -403,7 +403,7 @@ const EventCreationWizard: React.FC<EventCreationWizardProps> = ({
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
+              <SelectContent className="bg-glass backdrop-blur-sm border-gray-300">
               <SelectItem value="bank_transfer">Bank Transfer</SelectItem>
               <SelectItem value="cashapp">Cash App</SelectItem>
               <SelectItem value="paypal">PayPal</SelectItem>
@@ -948,11 +948,11 @@ const EventCreationWizard: React.FC<EventCreationWizardProps> = ({
                   {paymentMethods.map((pm) => (
                     <Card key={pm.id} className="p-4">
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 bg-gray-300">
                           {getPaymentMethodIcon(pm.type)}
                           <div>
                             <p className="font-medium">{getPaymentMethodLabel(pm.type)}</p>
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-[14px] text-muted-foreground">
                               {pm.type === 'bank_transfer' && `${pm.details.bankName} - ${pm.details.accountNumber}`}
                               {pm.type === 'cashapp' && pm.details.tagName}
                               {pm.type === 'paypal' && pm.details.email}

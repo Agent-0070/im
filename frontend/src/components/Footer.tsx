@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
                 <Github className="h-4 w-4 group-hover:scale-110 transition-transform" />
               </a>
               <a
-                href="https://x.com/temijpg"
+                href="https://x.com/kingdrake0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full backdrop-blur-sm bg-glass-light/20 border border-gray-300 hover:bg-glass-light/30 transition-colors flex items-center justify-center group"

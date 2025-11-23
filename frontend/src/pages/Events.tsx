@@ -74,7 +74,7 @@ const Events: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16 pb-8 font-poppins">
+    <div className="min-h-screen md:pt-16 pb-8 font-poppins">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <motion.div
@@ -82,10 +82,10 @@ const Events: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-4xl font-bold mb-4 text-gray-800">
+          <h1 className="text-2xl md:text-4xl font-[700] mb-4 text-gray-800 font-salsa">
             Discover <span className="bg-[#3cdaff] bg-clip-text text-transparent">Events</span>
           </h1>
-          <p className="text-[14px] font-[415] text-muted-foreground max-w-2xl mx-auto mb-8 font-poppins">
+          <p className="md:text-[15px] text-[13px] font-[415] text-muted-foreground max-w-2xl mx-auto mb-8 font-poppins">
             Find amazing events happening in your area or create your own to bring people together.
           </p>
           

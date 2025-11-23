@@ -23,11 +23,7 @@ const Home: React.FC = () => {
       title: 'Smart Booking System',
       description: 'Book events instantly with real-time availability. Never miss out on your favorite events again.'
     },
-    {
-      icon: MapPin,
-      title: 'Location-Based Search',
-      description: 'Find events near you with our powerful location search and filtering system.'
-    },
+    
     {
       icon: Sparkles,
       title: 'Beautiful Experience',
@@ -36,9 +32,9 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16 home-page font-poppins">
+    <div className="min-h-screen md:pt-16 pt-2 home-page font-poppins">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32 font-poppins">
+      <section className="relative overflow-hidden py-5 lg:py-32 font-poppins">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -48,7 +44,7 @@ const Home: React.FC = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <motion.h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-[550] mb-6"
+              className="text-3xl md:text-6xl lg:text-7xl font-[650] mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -60,7 +56,7 @@ const Home: React.FC = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-[15px] md:text-[17px] font-[405] text-gray-600 mb-8 max-w-2xl mx-auto"
+              className="text-[13px] md:text-[17px] font-[405] text-gray-600 mb-8 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -78,7 +74,7 @@ const Home: React.FC = () => {
               <Link to="/events">
                 <Button 
                   size="lg" 
-                  className="bg-[#39dafe] text-white border-0 shadow-glow text-lg px-8 py-6 h-auto font-poppins font-[405]"
+                  className="bg-[#39dafe] md:text-[15px] text-[12px] text-white border-0 shadow-glow  md:px-8 px-4 py-2 h-auto font-poppins font-[405]"
                 >
                   Explore Events
                 </Button>
@@ -89,7 +85,7 @@ const Home: React.FC = () => {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="bg-glass-light/10 border-glass-border/30 hover:bg-glass-light/20 text-lg px-8 py-6 h-auto backdrop-blur-sm"
+                    className="bg-glass-light/10 border-glass-border/30 hover:bg-glass-light/20 md:text-[15px] text-[12px] md:px-8 px-4 py-2 h-auto backdrop-blur-sm"
                   >
                     Create Event
                   </Button>
@@ -101,7 +97,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-b from-transparent to-muted/20">
+      <section className="py-10 bg-gradient-to-b from-transparent to-muted/20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -118,7 +114,7 @@ const Home: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:max-w-5xl mx-auto">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -145,7 +141,7 @@ const Home: React.FC = () => {
 
       {/* Featured Events Section */}
       {featuredEvents.length > 0 && (
-        <section className="py-20">
+        <section className="md:py-20 py-10">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

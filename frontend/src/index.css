@@ -566,3 +566,64 @@
     color: hsl(var(--primary));
   }
 }
+
+/* Prevent horizontal overflow that can cause page shaking on mobile */
+html, body, #root {
+  overflow-x: hidden;
+}
+
+/* Make .container truly responsive and constrained to viewport on small screens
+   This ensures pages like Create Event, Dashboard, and Profile Edit don't exceed
+   the mobile width and cause layout shifts when elements open. */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .container { max-width: 640px; padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+@media (min-width: 768px) {
+  .container { max-width: 768px; padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+
+@media (min-width: 1536px) {
+  .container { max-width: 1550px; }
+}
+
+/* Make dropdowns full-width under trigger on small screens to avoid overflow */
+@media (max-width: 640px) {
+  /* Radix select content sits in a portal; apply a safe default so dropdowns
+     don't overflow horizontally on very small screens */
+  .select-portal-fullwidth, .bg-glass-light\/10 {
+    max-width: calc(100vw - 1rem) !important;
+  }
+}
+
+/* Helper class: make dropdown/popover content full width on small screens
+   Usage: add `className="fullwidth-mobile"` to your SelectContent/Popover Content
+   when you want the panel to align under the trigger and occupy most of the viewport. */
+@media (max-width: 640px) {
+  .fullwidth-mobile {
+    width: calc(100% - 1rem) !important;
+    max-width: calc(100vw - 1rem) !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

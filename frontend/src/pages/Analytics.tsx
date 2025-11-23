@@ -202,7 +202,7 @@ const Analytics: React.FC = () => {
                 <SelectTrigger className="w-[140px]">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className='bg-white text-black'>
+                <SelectContent className='bg-glass-light/10 backdrop-blur-sm border-glass-border/30 text-black dark:text-white'>
                   <SelectItem value="7d">Last 7 days</SelectItem>
                   <SelectItem value="30d">Last 30 days</SelectItem>
                   <SelectItem value="90d">Last 90 days</SelectItem>
@@ -214,7 +214,7 @@ const Analytics: React.FC = () => {
                 <SelectTrigger className="w-[200px]">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className='bg-white dark:bg-black text-black'>
+                <SelectContent className='bg-glass-light/10 backdrop-blur-sm border-glass-border/30 text-black dark:text-white'>
                   <SelectItem value="all">All Events</SelectItem>
                   {Array.isArray(userEvents) ? userEvents.map(event => (
                     <SelectItem  key={event.id}  value={event.id}>

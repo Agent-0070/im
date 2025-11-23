@@ -8,6 +8,7 @@ import {
   notificationsAPI,
   createSocketConnection
 } from '../lib/api';
+import { toast } from '../hooks/use-toast';
 
 
 // Normalize user object to ensure arrays exist
@@ -567,7 +568,6 @@ export const EventProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     } catch (err: any) {
       const message = err?.response?.data?.message || err?.message || 'Update event status failed';
       try {
-        const { toast } = await import('../hooks/use-toast');
         toast({ title: 'Update event status failed', description: message, variant: 'destructive' as any });
       } catch {}
       handleError(err);
@@ -731,7 +731,6 @@ export const EventProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     } catch (err: any) {
       const message = err?.response?.data?.message || err?.message || 'Login failed';
       try {
-        const { toast } = await import('../hooks/use-toast');
         toast({ title: 'Login failed', description: message, variant: 'destructive' as any });
       } catch {}
       handleError(err);
@@ -772,7 +771,6 @@ export const EventProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     } catch (err: any) {
       const message = err?.response?.data?.message || err?.message || 'Registration failed';
       try {
-        const { toast } = await import('../hooks/use-toast');
         toast({ title: 'Registration failed', description: message, variant: 'destructive' as any });
       } catch {}
       console.error('❌ Registration failed:', err);
@@ -826,7 +824,6 @@ export const EventProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     } catch (err: any) {
       const message = err?.response?.data?.message || err?.message || 'Update profile failed';
       try {
-        const { toast } = await import('../hooks/use-toast');
         toast({ title: 'Update profile failed', description: message, variant: 'destructive' as any });
       } catch {}
       handleError(err);

@@ -59,7 +59,7 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen pt-16 font-poppins">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32 font-poppins">
+      <section className="relative overflow-hidden py-5 lg:py-20 font-poppins">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
